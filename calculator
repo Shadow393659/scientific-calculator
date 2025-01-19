@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="Calculator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- <script src="https://cdnjs.cloudflare. --><!-- com/ajax/libs/mathjs/14.0.1/math.min.js"  --><!-- integrity="sha512-PbOEC/cOHBQKshG/XgYoI --><!-- +kff08IraowCgPlDT8NL91 --><!-- +ZPaeuvWVtC7jYTDua9Kow5QTpX --><!-- +EMIM0RBKAA2Hsmg=="  --><!-- crossorigin="anonymous"  --><!-- referrerpolicy="no-referrer"></script> -->
+    
+</head>
+<body>
+    <div class="container">
+       
+        
+        <input type="text" placeholder="0 " class="display_input">
+        <h2 class="result"></h2>
+        
+        <div class="scientific">
+            <button class="scien" onclick="display('!')">!</button>
+            <button class="scien" onclick="display('π')">π</button>
+            <button class="scien" onclick="display('sin(')">sin</button>
+            <button class="scien" onclick="display('cos(')">cos</button>
+            <button class="scien" onclick="display('tan(')">tan</button>
+            <button class="scien" onclick="display('DEG')">deg</button>
+            <button class="scien" onclick="display('e^')">e</button>
+            <button class="scien" onclick="display('ln(')">ln</button>
+            <button class="scien" onclick="display('log(')">log</button>
+            <button class="scien" onclick="display('%')">%</button>
+            <button class="scien" onclick="est()" id="solve">est</button>
+            <button class="scien" onclick="display('^')">^</button>
+            <button class="scien" onclick="display('(')">(</button>
+            
+            
+            <button class="scien" onclick="display(')')">)</button>
+            
+            
+           
+            
+            <button class="backbtn"><i class="fa-solid fa-angle-down"></i> </button>
+        </div>
+        <div class="calculator">
+            <button class="cus" onclick="allclear()">AC</button>
+            <button class="spec" onclick="display('^2')">x²</button>
+            <button class="spec" onclick="display('√(')"><i class="fa-solid fa-square-root-variable"></i></button>
+            <button class="spec" onclick="display('÷')"><i class="fa-solid fa-divide"></i></button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button class="spec" onclick="display('x')">x</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button class="spec" onclick="display('-')"><b>-</b></button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button class="spec" onclick="display('+')">+</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="display('.')"><b>.</b></button>
+            <button onclick="del()"><i class="fa-solid fa-delete-left"></i></button>
+            <button class="cust" onclick="evaluate1()">=</button>
+        </div>
+        
+    </div>
+    
+    
+    
+    <script src="Calculator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.1/math.min.js" integrity="sha512-PbOEC/cOHBQKshG/XgYoI+kff08IraowCgPlDT8NL91+ZPaeuvWVtC7jYTDua9Kow5QTpX+EMIM0RBKAA2Hsmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="Calculator.js"></script>
+    
+</body>
+</html>*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    box-sizing: 0;
+    padding: 0;
+    
+}
+.container{
+    margin:auto;
+    padding: 15px;
+    width: 450px;
+    height: 800px;
+    border: solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+    
+}
+.container .calculator{
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: repeat(5,90px);
+    align-self: flex-end;
+    row-gap: 10px;
+    column-gap: 10px;
+    overflow: hidden;
+    position: absolute;
+
+} 
+.container .calculator.octive{
+    display: grid;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: repeat(5,60px);
+
+}
+    
+
+ input{
+    background-color: rgb(41, 43, 58);
+    color: white;
+    display: grid;
+    width:440px;
+    height:205px;
+    grid-column: span 4;
+    position:absolute;
+    
+    top :1%;
+    border-radius: 25px;
+    border: none;
+    text-align: right;
+    overflow: hidden;
+    direction: ltr;
+    white-space: nowrap;
+
+    
+    font-size: 50px;
+    overflow: auto;
+    z-index: 2;
+    margin-top: 15px;
+    
+ }
+ .container .calculator button{
+    font-size: 40px;
+    border-radius: 50%;
+    background-color: rgb(27, 27, 39);
+    color: white;
+    border: none;
+
+    
+ }
+ 
+    
+ 
+ .container .scientific {
+    width:60%;
+    height: 30%;
+    font-size: large;
+    border-radius: 50%;
+    color: white;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(5,90px);
+    position : relative;
+    z-index: 1;
+    top :-230px;
+    left: -90px;
+  
+}
+ .container .scientific.active {
+    font-size: large;
+    border-radius: 50%;   
+    display: grid;
+    position : relative;
+    grid-template-columns: repeat(5,90px);
+    top : -100px;
+    left:-90px;
+    
+}
+ .scien{
+    background-color: black;
+    border:none;
+    color:white;
+    font-size: 40px;
+ }
+ 
+ .result{
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 150px;
+    width: 450px;
+    padding-right: 15px;
+    text-align: right;
+    z-index: 2 ;
+    overflow: hidden;
+    
+ }
+ .backbtn{
+    text-align: center;
+    width:115px;
+    background-color: black ;
+    border:none;
+    color: white;
+    font-size: larger;
+ }
+ .backbtn.active{
+    text-align: center;
+    width:100px;
+ }
+.container .calculator .spec{
+    background-color: rgb(73, 66, 99);
+}
+.container .calculator .cus{
+    background-color: rgb(86, 60, 107);
+}
+.container .calculator .cust{
+    background-color: rgb(0, 28, 226);
+}
+.container .algebra{
+    position: relative;
+    left:-190px;
+    top:-110px;
+    
+}
+
+let screen = document.querySelector(".display_input");
+let output = document.querySelector(".result");
+let backbtn = document.querySelector(".backbtn");
+let science = document.querySelector(".scientific");
+let calculator = document.querySelector(".calculator");
+let a;
+let algebraa = document.querySelector("#solve");
+//let d = {x:"8",'÷' :"/" };
+screen.addEventListener("input",()=>{
+    screen.scrollLeft = screen.scrollWidth;
+});
+
+function display(num){
+    
+    screen.value+=num;
+    a = screen.value.replaceAll('x','*').replaceAll('÷','/').replaceAll('√(','sqrt(').replaceAll('DEG','*3.14/180').replaceAll('π','*3.14');
+    output.textContent = math.evaluate(a);
+};
+function evaluate1(){
+    
+    screen.value = math.evaluate(a);
+    output.textContent = "";
+};
+function del(){
+    screen.value = screen.value.slice(0,-1);
+    output.textContent = eval(screen.value);
+};
+function allclear(){
+    screen.value = "";
+    output.textContent = "";
+}
+backbtn.addEventListener("click", ()=> {
+    science.classList.toggle("active");
+    calculator.classList.toggle("octive");
+});
+function est(){
+    output.textContent = Math.round(output.textContent)
+}
+
+
+
+
+
+
+
+   
+   
+   
+   
+   
+   
+   
+
+
+
+
