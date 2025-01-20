@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="Calculator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <input  type="text" placeholder="0 " class="display_input">
+        <h2 class="result"></h2>
+        
+        <div class="scientific">
+            <button class="scien">()</button>
+            <button class="scien" onclick="display('π')">π</button>
+            <button class="scien" onclick="sin()">sin</button>
+            <button class="scien" onclick="cos()">cos</button>
+            <button class="scien" onclick="tan()">tan</button>
+            <button class="scien" onclick="inv()">INV</button>
+            <button class="scien" onclick="e()">e</button>
+            <button class="scien" onclick="ln()">ln</button>
+            <button class="scien" onclick="log()">log</button>
+            <button class="scien">alg</button>
+            <button class="scien">graph</button>
+            
+           
+            
+            <button class="backbtn"><i class="fa-solid fa-angle-down"></i> </button>
+        </div>
+        <div class="calculator">
+            <button class="cus" onclick="allclear()">AC</button>
+            <button class="spec" onclick="display('')">!</button>
+            <button class="spec" onclick="display('√')"><i class="fa-solid fa-square-root-variable"></i></button>
+            <button class="spec" onclick="display('÷')"><i class="fa-solid fa-divide"></i></button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button class="spec" onclick="display('x')">x</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button class="spec" onclick="display('-')"><b>-</b></button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button class="spec" onclick="display('+')">+</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="display('.')"><b>.</b></button>
+            <button onclick="del()"><i class="fa-solid fa-delete-left"></i></button>
+            <button class="cust" onclick="evaluate1()">=</button>
+        </div>
+        <div class="algerba">
+        <!--     <input class="kio" type="text" placeholder="Enter the coefficients  -->ex:[2,3,4,5...]">
+        <!--     <h2 class="res"></h2> -->
+        <!--     <button  class ="hif"onclick="display1('1')">1</button> -->
+        <!--     <button class ="hif" onclick="display1('2')">2</button> -->
+        <!--     <button class ="hif" onclick="display1('3')">3</button> -->
+        <!--     <button class ="hif" onclick="display1('4')">4</button> -->
+        <!--     <button class ="hif" onclick="display1('5')">5</button> -->
+        <!--     <button class ="hif" onclick="display1('6')">6</button> -->
+        <!--     <button class ="hif" onclick="display1('7')">7</button> -->
+        <!--     <button class ="hif" onclick="display1('8')">8</button> -->
+        <!--     <button class ="hif" onclick="display1('9')">9</button> -->
+        <!--     <button class ="hif" onclick="display1('0')">0</button> -->
+        <!--     <button class ="hifi"onclick ="call()">=</button> -->
+        <!-- </div> -->
+    </div>
+    <script src="Calculator.js"></script>
+</body>
+</html>
